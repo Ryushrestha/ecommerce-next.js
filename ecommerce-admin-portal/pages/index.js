@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Login from "@/components/Login";
 import { useSession,signIn,signOut } from "next-auth/react"
 
 export default function Component() {
@@ -30,6 +31,7 @@ return (
         </div>
       </div>
     </Layout>
+   
 )
 }
 
