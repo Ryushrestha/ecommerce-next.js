@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 form{
-    @apply border border-gray-300 rounded-md
+    @apply border border-gray-300 rounded-md w-full
 }
 
 input{

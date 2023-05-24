@@ -1,13 +1,18 @@
 import React from 'react'
 import Nav from './Nav'
 import { signIn, useSession } from 'next-auth/react'
+import Loader from './Loader'
 
 const Layout = ({ children }) => {
-  const { data: session } = useSession()
+  const { data: session,status } = useSession()
 
   const signInHandler = (e) => {
     e.preventDefault();
     signIn('google')
+  }
+
+  if(status === 'loading'){
+    return <Loader/>
   }
 
   if (!session) {
@@ -20,9 +25,9 @@ const Layout = ({ children }) => {
   return (
     <>
       
-        <div className='flex flex-grow'>
+        <div className='flex flex-grow w-full'>
           <Nav />
-          <div>
+          <div className='w-full p-7 gap-4'>
             {children}
           </div>
         </div>
